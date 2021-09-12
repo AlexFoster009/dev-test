@@ -23,25 +23,6 @@ Route::get('/sort', function () {
     /*
      *  Print Sorted array when route visited.
      */
-    /**
-     * @param $arr
-     */
-    function sortArray ($arr)
-    {
-        for ( $i = 0; $i < sizeof($arr); $i++){
-            for ($j = 0; $j < sizeof($arr); $j++){
-                if ($arr[$j][0] < $arr[$i][0]) {
-                  for ($k = 0; $k < 2; $k++){
-                      $sorted[$k] = $arr[$i][$k];
-                      $arr[$i][$k] = $arr [$j][$k];
-                      $arr[$j][$k] = $sorted[$k];
-                  }
-                }
-            }
-        }
-        return array_reverse($arr);
-    }
-
     $myArray = [
         [1, 'a'],
         [15, 'b'],
@@ -51,10 +32,11 @@ Route::get('/sort', function () {
         [22, 'f'],
     ];
 
+    array_multisort($myArray);
 
     // Echo out sorted array.
     echo "<pre>";
-    print_r(sortArray($myArray));
+    print_r($myArray);
     echo "</pre>";
 
 
