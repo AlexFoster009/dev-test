@@ -80,7 +80,7 @@ export default {
         border-collapse: collapse;
     }
 
-    .table th {
+    .table th td {
         font-weight: bold;
         text-transform: uppercase;
      }
