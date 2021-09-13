@@ -30,6 +30,11 @@ export default {
         axios.get('http://universities.hipolabs.com/search')
         .then(function(response){
             response.data.forEach(function(el){
+
+                /*
+                    This is not a good way to store data, but for the sake of time and to prevent
+                    manually adding data i decided to use Ajax it into the DB.
+                 */
                 if(el.country == "United States" || el.country == "Canada"){
                    axios.post("/schools/store",{
                        country: el.country,
@@ -42,12 +47,10 @@ export default {
             })
         }).catch(function(error){
             console.log(error);
-        }).then(function(){
+        });
 
-        })
         this.fetchData();
     },
-    computed: {},
     methods: {
         async fetchData () {
             try {
