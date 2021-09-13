@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArrayController;
+use App\Http\Controllers\SchoolsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,3 +42,7 @@ Route::get('/sort', function () {
 
 
 });
+
+Route::get('schools',[SchoolsController::class, 'index']);
+Route::post('schools/store',[SchoolsController::class, 'store']);
+Route::get('schools/list',[SchoolsController::class, 'listSchools']);
